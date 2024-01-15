@@ -12,9 +12,7 @@ export default {
         <div class="card">
              <h5>{{film.title}}</h5>
              <h5>{{film.original_title}}</h5>
-             <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" />
-
-    
+             <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" />    
              <h5>{{film.vote_average}}</h5>
         </div>
 </template>

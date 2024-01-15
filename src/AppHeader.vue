@@ -22,16 +22,23 @@ export default {
 
     methods: {
         chiamata() {
-            let apiModificata = store.api + store.ricerca;
+            let apiModificata = store.apiFilm + store.ricerca;
 
             axios.get(apiModificata).then((response) => {
                 store.film = response.data.results
-                console.log(apiModificata)
+                // console.log(apiModificata)
             });
 
+            let apiModificataSerie = store.apiSerie + store.ricerca;
+            axios.get(apiModificataSerie).then((response) => {
+                store.serie = response.data.results
+                console.log(store.serie)
+            })
         }
+
     }
 }
+
 
 </script>
 
