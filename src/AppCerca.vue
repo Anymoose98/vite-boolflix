@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import { store } from '../src/store.js';
 
 export default {
@@ -12,8 +13,14 @@ export default {
 
 
     methods: {
-        prova() {
-            console.log(store.ricerca)
+        chiamata() {
+            let apiModificata = store.api + store.ricerca
+
+            axios.get(apiModificata).then((response) => {
+                store.film = response.data.results
+            });
+            console.log(store.film)
+
         }
     }
 }
@@ -23,7 +30,7 @@ export default {
 <template lang="">
         <div class="margine-contenitore">
             <input v-model="store.ricerca" type="text" placeholder="Cerca">
-            <button  @click='prova'>Cerca</button>
+            <button  @click='chiamata'>Cerca</button>
         </div>
 </template>
 
