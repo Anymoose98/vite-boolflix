@@ -7,10 +7,10 @@ export default {
 
 <template lang="">
   <div>
-      Prova
+      
   </div>
 </template>
 
-<style lang="">
-  
+<style lang="scss">
+@use './style/generals.scss'
 </style>
