@@ -1,12 +1,12 @@
 <script>
+import axios from 'axios';
 import { store } from '../src/store.js';
-import AppCerca from './AppCerca.vue';
+
 
 export default {
     name: 'AppHeader',
 
     components: {
-        AppCerca,
 
     },
 
@@ -21,7 +21,15 @@ export default {
     },
 
     methods: {
+        chiamata() {
+            let apiModificata = store.api + store.ricerca;
 
+            axios.get(apiModificata).then((response) => {
+                store.film = response.data.results
+                console.log(store.film)
+            });
+
+        }
     }
 }
 
@@ -33,7 +41,10 @@ export default {
             BoolFlix
         </h1>
         
-        <AppCerca />
+        <div class="margine-contenitore">
+            <input v-model="store.ricerca" type="text" placeholder="Cerca">
+            <button  @click='chiamata'>Cerca</button>
+        </div>
 
     </header>
 </template>
@@ -53,6 +64,23 @@ header {
         width: 50%;
     }
 
+    .margine-contenitore {
+        margin-right: 50px;
+
+        input {
+            border-radius: 10px;
+            padding: 6px 20px;
+            margin-right: 10px;
+        }
+
+        button {
+            border-radius: 10px;
+            padding: 10px 15px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+    }
 
 
 }
