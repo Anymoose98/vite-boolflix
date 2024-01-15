@@ -20,7 +20,7 @@ export default {
 
 <template lang="">
     <main>
-        <AppCard v-for="film, index in store.film" ::key="index" :film=film />
+        <AppCard v-for="film, index in store.film" :key="index" :film=film />
     </main>
 </template>
 

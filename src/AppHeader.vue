@@ -42,7 +42,7 @@ export default {
         </h1>
         
         <div class="margine-contenitore">
-            <input v-model="store.ricerca" type="text" placeholder="Cerca">
+            <input v-model="store.ricerca" type="text" placeholder="Cerca" @keyup.enter='chiamata'>
             <button  @click='chiamata'>Cerca</button>
         </div>
 
