@@ -1,8 +1,14 @@
 <script>
 import { store } from '../src/store.js';
+import AppCerca from './AppCerca.vue';
 
 export default {
     name: 'AppHeader',
+
+    components: {
+        AppCerca,
+
+    },
 
     data() {
         return {
@@ -15,9 +21,7 @@ export default {
     },
 
     methods: {
-        prova() {
-            console.log(store.ricerca)
-        }
+
     }
 }
 
@@ -29,10 +33,8 @@ export default {
             BoolFlix
         </h1>
         
-        <div class="margine-contenitore">
-            <input v-model="store.ricerca" type="text" placeholder="Cerca">
-            <button  @click='prova' >Cerca</button>
-        </div>
+        <AppCerca />
+
     </header>
 </template>
 
@@ -44,10 +46,6 @@ header {
     display: flex;
     justify-content: space-between;
 
-    .margine-contenitore {
-        margin-right: 50px;
-    }
-
     h1 {
         color: red;
         font-size: xx-large;
@@ -55,19 +53,7 @@ header {
         width: 50%;
     }
 
-    input {
-        border-radius: 10px;
-        padding: 6px 20px;
-        margin-right: 10px;
-    }
 
-    button {
-        border-radius: 10px;
-        padding: 10px 15px;
-        background-color: red;
-        color: white;
-        cursor: pointer;
-    }
 
 }
 </style>
