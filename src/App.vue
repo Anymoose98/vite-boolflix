@@ -7,7 +7,7 @@ export default {
 
 <template lang="">
   <div>
-    
+      Prova
   </div>
 </template>
 
