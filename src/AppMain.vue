@@ -1,8 +1,12 @@
 <script>
 import { store } from '../src/store.js';
-
+import AppCard from './AppCard.vue';
 export default {
     name: 'AppMain',
+
+    components: {
+        AppCard,
+    },
 
     data() {
         return {
@@ -16,32 +20,15 @@ export default {
 
 <template lang="">
     <main>
-        <div class="card">
-             <h5>{{store.film[0].title}}</h5>
-             <h5>{{store.film[0].original_title}}</h5>
-             <h5>{{store.film[0].original_language}}</h5>
-             <h5>{{store.film[0].vote_average}}</h5>
-        </div>
+        <AppCard v-for="film, index in store.film" ::key="index" :film=film />
     </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 main {
     max-width: 1200px;
     margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
-
-    .card {
-        width: calc(100% / 4 - 10px);
-        margin: 5px;
-        text-align: center;
-
-        h5 {
-            color: white;
-        }
-
-    }
-
 }
 </style>
