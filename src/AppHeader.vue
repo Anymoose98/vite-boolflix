@@ -1,6 +1,24 @@
 <script>
+import { store } from '../src/store.js';
+
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+
+    data() {
+        return {
+            store,
+        }
+    },
+
+    created() {
+
+    },
+
+    methods: {
+        prova() {
+            console.log(store.ricerca)
+        }
+    }
 }
 
 </script>
@@ -12,8 +30,8 @@ export default {
         </h1>
         
         <div class="margine-contenitore">
-            <input type="text" placeholder="Cerca">
-            <button >Cerca</button>
+            <input v-model="store.ricerca" type="text" placeholder="Cerca">
+            <button  @click='prova' >Cerca</button>
         </div>
     </header>
 </template>
