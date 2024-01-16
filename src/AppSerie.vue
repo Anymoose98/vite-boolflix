@@ -21,7 +21,12 @@ export default {
              <h5>{{serie.name}}</h5>
              <h5>{{serie.original_name}}</h5>
              <img :src="'https://flagsapi.com/'+ serie.origin_country[0] +'/shiny/64.png'" class="bandiere"/>    
-             <h5>{{calcolaVotoMedio(serie.vote_average)}}</h5>
+
+             <div class="contenitore-stelle">
+                <span v-for="index in calcolaVotoMedio(serie.vote_average)" :key="index" ><i class="fa-solid fa-star"></i></span>
+                <span v-for="index in 5 - calcolaVotoMedio(serie.vote_average)"  :key="index"><i class="fa-regular fa-star"></i></span>
+            </div>
+             <!-- <h5>{{calcolaVotoMedio(serie.vote_average)}}</h5> -->
         </div>
 </template>
 
@@ -34,6 +39,10 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     min-height: 300px;
+
+    .fa-star {
+        color: white;
+    }
 
     .img-card {
         width: 100%;
