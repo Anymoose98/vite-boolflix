@@ -10,9 +10,11 @@ export default {
         
 <template lang="">
     <div class="card">
+             <img v-if="serie.backdrop_path == null " class="img-null" alt="" src="https://www.matteopogliani.it/wp-content/plugins/content-cards/skins/default/content-cards-placeholder.png">
+             <img  v-else :src="'https://image.tmdb.org/t/p/original' + serie.backdrop_path " class="img-card" alt=""  >
              <h5>{{serie.name}}</h5>
              <h5>{{serie.original_name}}</h5>
-             <img :src="'https://flagsapi.com/'+ serie.origin_country[0] +'/shiny/64.png'" />    
+             <img :src="'https://flagsapi.com/'+ serie.origin_country[0] +'/shiny/64.png'" class="bandiere"/>    
              <h5>{{serie.vote_average}}</h5>
         </div>
 </template>
@@ -20,14 +22,25 @@ export default {
 <style lang="scss" scoped>
 .card {
     width: calc(100% / 4 - 10px);
-    margin: 20px 5px;
+    margin: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    min-height: 300px;
 
+    .img-card {
+        width: 100%;
+        margin: 0 auto
+    }
 
-    img {
+    .img-null {
+        width: 100%;
+        height: 163.13px;
+        object-fit: cover;
+    }
+
+    .bandiere {
         width: 30px;
         margin: 0 auto
     }
