@@ -13,9 +13,11 @@ export default {
             return Math.ceil(voto / 2);
         },
 
-        // bandiera() {
-        //     return src = "https://flagsapi.com/IT/shiny/64.png";
-        // }
+        errore(event) {
+            // Modifica l'URL dell'immagine in caso di errore
+            event.target.src = 'https://flagsapi.com/IT/shiny/64.png';
+        }
+
     },
 }
 </script>
@@ -24,7 +26,9 @@ export default {
     <div class="card-container">
         <div class="card">
             <div class="card-front">
-                <h2>{{film.title}}</h2>
+                <div class="titolo-card">
+                    <h2>{{film.title}}</h2>
+                </div>
 
                 <!-- In caso non esistesse film.backdrop_path prende una foto sennò carica img -->
                 <img v-if="film.backdrop_path == null " class="img-null" alt="" src="https://www.matteopogliani.it/wp-content/plugins/content-cards/skins/default/content-cards-placeholder.png">
@@ -38,11 +42,11 @@ export default {
             </div>
 
             <div class="card-retro">
-                <h5>{{film.title}}</h5>
-                <h5>{{film.original_title}}</h5>
-                
+                <h5>Titolo: <br>{{film.title}}</h5>
+                <h5>Titolo originale: <br>{{film.original_title}}</h5>
+
                 <!-- Ricerca bandiera usando trasformandolo in maiuscolo sennò non funziona -->
-                <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" />
+                <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" @error="errore"/>
             </div>
 
         </div>

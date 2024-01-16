@@ -10,6 +10,11 @@ export default {
         // Funzione per dividire in due e arrottondare per eccesso 
         calcolaVotoMedio(voto) {
             return Math.ceil(voto / 2);
+        },
+
+        errore(event) {
+            // Modifica l'URL dell'immagine in caso di errore
+            event.target.src = 'https://flagsapi.com/IT/shiny/64.png';
         }
     },
 }
@@ -19,7 +24,10 @@ export default {
     <div class="card-container">
         <div class="card">
             <div class="card-front">
-                <h2>{{serie.name}}</h2>
+
+                <div class="titolo-card">
+                    <h2>{{serie.name}}</h2>
+                </div>
                 
                 <!-- In caso non esistesse film.backdrop_path prende una foto sennò carica img -->
                 <img v-if="serie.backdrop_path == null " class="img-null" alt="" src="https://www.matteopogliani.it/wp-content/plugins/content-cards/skins/default/content-cards-placeholder.png">
@@ -33,11 +41,11 @@ export default {
             </div>
     
             <div class="card-retro">
-                <h5>{{serie.name}}</h5>
-                <h5>{{serie.original_name}}</h5>
+                <h5>Titolo: <br>{{serie.name}} </h5>
+                <h5>Titolo originale: <br> {{serie.original_name}}</h5>
 
                 <!-- Ricerca bandiera usando trasformandolo in maiuscolo sennò non funziona -->
-                <img :src="'https://flagsapi.com/'+ serie.origin_country[0] +'/shiny/64.png'" class="bandiere"/>    
+                <img :src="'https://flagsapi.com/'+ serie.origin_country[0] +'/shiny/64.png'" class="bandiere" @error="errore"/>    
             </div>
         </div>
     </div>
