@@ -41,11 +41,14 @@ export default {
             </div>
     
             <div class="card-retro">
-                <h5>Titolo: <br>{{serie.name}} </h5>
-                <h5>Titolo originale: <br> {{serie.original_name}}</h5>
-
                 <!-- Ricerca bandiera usando trasformandolo in maiuscolo sennò non funziona -->
                 <img :src="'https://flagsapi.com/'+ serie.origin_country[0] +'/shiny/64.png'" class="bandiere" @error="errore"/>    
+                
+                <h5><span>Titolo:</span> <br>{{serie.name}} </h5>
+                <h5><span>Titolo originale:</span> <br> {{serie.original_name}}</h5>
+                <span>Trama</span><br>
+                <p>{{serie.overview}}</p>
+
             </div>
         </div>
     </div>

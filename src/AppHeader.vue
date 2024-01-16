@@ -29,14 +29,14 @@ export default {
 
             axios.get(apiModificata).then((response) => {
                 store.film = response.data.results
-                console.log(apiModificata)
+                console.log()
             });
 
             // Chiamata serie
             let apiModificataSerie = store.apiSerie + store.ricerca;
             axios.get(apiModificataSerie).then((response) => {
                 store.serie = response.data.results
-                console.log(store.serie)
+                console.log(apiModificataSerie)
             })
 
             // Cambio in true per cambiare le scritte solo se c'è un contenuto nella barra di ricerca

@@ -25,6 +25,8 @@ export default {
 <template lang="">
     <div class="card-container">
         <div class="card">
+
+            <!-- Parte avanti -->
             <div class="card-front">
                 <div class="titolo-card">
                     <h2>{{film.title}}</h2>
@@ -41,12 +43,16 @@ export default {
                 </div>
             </div>
 
+            <!-- Parte retro -->
             <div class="card-retro">
-                <h5>Titolo: <br>{{film.title}}</h5>
-                <h5>Titolo originale: <br>{{film.original_title}}</h5>
-
                 <!-- Ricerca bandiera usando trasformandolo in maiuscolo sennò non funziona -->
                 <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" @error="errore"/>
+
+                <h5><span>Titolo:</span> <br>{{film.title}}</h5>
+                <h5><span>Titolo originale:</span> <br>{{film.original_title}}</h5>
+                <span>Trama</span><br>
+                <p>{{film.overview}}</p>
+
             </div>
 
         </div>

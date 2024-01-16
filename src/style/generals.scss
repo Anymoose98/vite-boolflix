@@ -52,6 +52,7 @@ body {
             background-color: rgb(0, 0, 0);
         }
 
+
         .titolo-card {
             min-height: 30px;
             display: flex;
@@ -64,6 +65,12 @@ body {
 
         .card-retro {
             transform: rotateY(180deg);
+            overflow-y: auto;
+            padding-top: 100px;
+
+            span {
+                color: red;
+            }
         }
 
         .fa-star {
@@ -89,9 +96,5 @@ body {
         h5 {
             color: white;
         }
-
-
-
-
     }
 }
