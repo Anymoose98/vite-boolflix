@@ -10,36 +10,75 @@ body {
     background-color: rgb(50, 50, 50)
 }
 
-.card {
+.card-container {
     width: calc(100% / 4 - 10px);
+    position: relative;
     margin: 5px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 300px;
+    perspective: 1000px;
 
-    .fa-star {
-        color: white;
-    }
-
-    .img-card {
+    .card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 300px;
+        transform-style: preserve-3d;
+        transition: transform 1s;
         width: 100%;
-        margin: 0 auto
-    }
+        height: 100%;
 
-    .img-null {
-        width: 100%;
-        height: 163.13px;
-        object-fit: cover;
-    }
+        &:hover {
+            transform: rotateY(180deg);
+        }
 
-    .bandiere {
-        width: 30px;
-        margin: 0 auto
-    }
 
-    h5 {
-        color: white;
+        .card-front,
+        .card-retro {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            background-color: rgb(0, 0, 0);
+        }
+
+
+        .card-retro {
+            transform: rotateY(180deg);
+        }
+
+        .fa-star {
+            color: white;
+        }
+
+        .img-card {
+            width: 100%;
+
+        }
+
+        .img-null {
+            width: 100%;
+            height: 163.13px;
+            object-fit: cover;
+        }
+
+        .bandiere {
+            width: 30px;
+            margin: 0 auto
+        }
+
+        h5 {
+            color: white;
+        }
+
+
+
+
     }
 }
