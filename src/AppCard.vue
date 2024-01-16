@@ -22,7 +22,11 @@ export default {
              <h5>{{film.title}}</h5>
              <h5>{{film.original_title}}</h5>
              <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" />    
-             <h5   >{{calcolaVotoMedio(film.vote_average)}}</h5>
+
+             <div class="contenitore-stelle">
+                <span v-for="index in 5" :key="index" ><i class="fa-solid fa-star"></i></span>
+            </div>
+             <!-- <h5   >{{calcolaVotoMedio(film.vote_average)}}</h5> -->
         </div>
 </template>
 
@@ -36,6 +40,9 @@ export default {
     justify-content: flex-start;
     min-height: 300px;
 
+    .fa-solid {
+        color: white;
+    }
 
     .img-card {
         width: 100%;
