@@ -34,6 +34,8 @@ export default {
                 store.serie = response.data.results
                 console.log(store.serie)
             })
+
+            store.ricercaFatta = true
         }
 
     }
