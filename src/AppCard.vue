@@ -4,7 +4,13 @@ export default {
 
     props: {
         film: Object
-    }
+    },
+
+    methods: {
+        calcolaVotoMedio(voto) {
+            return Math.ceil(voto / 2);
+        }
+    },
 }
 </script>
         
@@ -16,7 +22,7 @@ export default {
              <h5>{{film.title}}</h5>
              <h5>{{film.original_title}}</h5>
              <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" />    
-             <h5>{{film.vote_average}}</h5>
+             <h5>{{calcolaVotoMedio(film.vote_average)}}</h5>
         </div>
 </template>
 

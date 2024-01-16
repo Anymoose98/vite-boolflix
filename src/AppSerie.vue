@@ -4,7 +4,13 @@ export default {
 
     props: {
         serie: Object
-    }
+    },
+
+    methods: {
+        calcolaVotoMedio(voto) {
+            return Math.ceil(voto / 2);
+        }
+    },
 }
 </script>
         
@@ -15,7 +21,7 @@ export default {
              <h5>{{serie.name}}</h5>
              <h5>{{serie.original_name}}</h5>
              <img :src="'https://flagsapi.com/'+ serie.origin_country[0] +'/shiny/64.png'" class="bandiere"/>    
-             <h5>{{serie.vote_average}}</h5>
+             <h5>{{calcolaVotoMedio(serie.vote_average)}}</h5>
         </div>
 </template>
 
