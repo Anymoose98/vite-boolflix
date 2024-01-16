@@ -25,6 +25,7 @@ export default {
 
              <div class="contenitore-stelle">
                 <span v-for="index in calcolaVotoMedio(film.vote_average)" :key="index" ><i class="fa-solid fa-star"></i></span>
+                <span v-for="index in 5 - calcolaVotoMedio(film.vote_average)"  :key="index"><i class="fa-regular fa-star"></i></span>
             </div>
              <!-- <h5   >{{calcolaVotoMedio(film.vote_average)}}</h5> -->
         </div>
@@ -40,7 +41,7 @@ export default {
     justify-content: flex-start;
     min-height: 300px;
 
-    .fa-solid {
+    .fa-star {
         color: white;
     }
 
