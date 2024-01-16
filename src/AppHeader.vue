@@ -26,7 +26,7 @@ export default {
 
             axios.get(apiModificata).then((response) => {
                 store.film = response.data.results
-                // console.log(apiModificata)
+                console.log(apiModificata)
             });
 
             let apiModificataSerie = store.apiSerie + store.ricerca;
