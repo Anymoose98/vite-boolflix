@@ -10,10 +10,10 @@ export default {
         
 <template lang="">
         <div class="card">
-            <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+            <img src="https://image.tmdb.org/t/p/original//iEFuHjqrE059SmflBva1JzDJutE.jpg" class="img-card" alt="">
              <h5>{{film.title}}</h5>
              <h5>{{film.original_title}}</h5>
-             <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" />    
+             <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" />    
              <h5>{{film.vote_average}}</h5>
         </div>
 </template>
@@ -25,9 +25,16 @@ export default {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    min-height: 300px;
 
-    img {
+
+    .img-card {
+        width: 100%;
+        margin: 0 auto
+    }
+
+    .bandiere {
         width: 30px;
         margin: 0 auto
     }
