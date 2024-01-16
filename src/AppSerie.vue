@@ -31,37 +31,4 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card {
-    width: calc(100% / 4 - 10px);
-    margin: 5px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 300px;
-
-    .fa-star {
-        color: white;
-    }
-
-    .img-card {
-        width: 100%;
-        margin: 0 auto
-    }
-
-    .img-null {
-        width: 100%;
-        height: 163.13px;
-        object-fit: cover;
-    }
-
-    .bandiere {
-        width: 30px;
-        margin: 0 auto
-    }
-
-    h5 {
-        color: white;
-    }
-}
-</style>
+// </style>
