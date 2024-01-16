@@ -24,7 +24,7 @@ export default {
              <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" />    
 
              <div class="contenitore-stelle">
-                <span v-for="index in 5" :key="index" ><i class="fa-solid fa-star"></i></span>
+                <span v-for="index in calcolaVotoMedio(film.vote_average)" :key="index" ><i class="fa-solid fa-star"></i></span>
             </div>
              <!-- <h5   >{{calcolaVotoMedio(film.vote_average)}}</h5> -->
         </div>
