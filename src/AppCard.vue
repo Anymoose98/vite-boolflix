@@ -10,7 +10,9 @@ export default {
         
 <template lang="">
         <div class="card">
-            <img src="https://image.tmdb.org/t/p/original//iEFuHjqrE059SmflBva1JzDJutE.jpg" class="img-card" alt="">
+            <img v-if="film.backdrop_path == null " class="img-null" alt="" src="https://www.matteopogliani.it/wp-content/plugins/content-cards/skins/default/content-cards-placeholder.png">
+            <img  v-else :src="'https://image.tmdb.org/t/p/original' + film.backdrop_path " class="img-card" alt=""  >
+
              <h5>{{film.title}}</h5>
              <h5>{{film.original_title}}</h5>
              <img :src="'https://flagsapi.com/'+ film.original_language.toUpperCase() +'/shiny/64.png'" class="bandiere" />    
@@ -32,6 +34,12 @@ export default {
     .img-card {
         width: 100%;
         margin: 0 auto
+    }
+
+    .img-null {
+        width: 100%;
+        height: 163.13px;
+        object-fit: cover;
     }
 
     .bandiere {
