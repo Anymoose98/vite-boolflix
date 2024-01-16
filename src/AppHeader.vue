@@ -21,7 +21,10 @@ export default {
     },
 
     methods: {
+
+        // Chiamata serie e film + cambio store.ricercaFatta
         chiamata() {
+            // Chiamata film
             let apiModificata = store.apiFilm + store.ricerca;
 
             axios.get(apiModificata).then((response) => {
@@ -29,13 +32,22 @@ export default {
                 console.log(apiModificata)
             });
 
+            // Chiamata serie
             let apiModificataSerie = store.apiSerie + store.ricerca;
             axios.get(apiModificataSerie).then((response) => {
                 store.serie = response.data.results
                 console.log(store.serie)
             })
 
-            store.ricercaFatta = true
+            // Cambio in true per cambiare le scritte solo se c'è un contenuto nella barra di ricerca
+            if (store.ricerca == "") {
+                store.ricercaFatta = false
+            }
+
+            else {
+                store.ricercaFatta = true
+
+            }
         }
 
     }
@@ -51,6 +63,7 @@ export default {
         </h1>
         
         <div class="margine-contenitore">
+            <!-- Barra di ricerca che modifica store.ricerca -->
             <input v-model="store.ricerca" type="text" placeholder="Cerca" @keyup.enter='chiamata'>
             <button  @click='chiamata'>Cerca</button>
         </div>
